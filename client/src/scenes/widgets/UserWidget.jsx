@@ -23,7 +23,7 @@ const UserWidget = ({ userId, picturePath }) => {
 
   const getUser = async () => {
     const response = await fetch(
-      `https://socailmedia-backend.onrender.com/users/${userId}`,
+      `${process.env.REACT_APP_BASE_URL}/users/${userId}`,
       {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },

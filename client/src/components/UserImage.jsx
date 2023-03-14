@@ -8,7 +8,7 @@ const UserImage = ({ image, size = "60px" }) => {
         width={size}
         height={size}
         alt="user"
-        src={`https://socailmedia-backend.onrender.com/assets/${image}`}
+        src={`${process.env.REACT_APP_BASE_URL}/assets/${image}`}
       />
     </Box>
   );

@@ -70,7 +70,7 @@ const Form = () => {
     formData.append("picturePath", values.picture.name);
 
     const savedUserResponse = await fetch(
-      "https://socailmedia-backend.onrender.com/auth/register",
+      `${process.env.REACT_APP_BASE_URL}/auth/register`,
       {
         method: "POST",
         body: formData,
@@ -86,7 +86,7 @@ const Form = () => {
 
   const login = async (values, onSubmitProps) => {
     const loggedInResponse = await fetch(
-      "https://socailmedia-backend.onrender.com/auth/login",
+      `${process.env.REACT_APP_BASE_URL}/auth/login`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

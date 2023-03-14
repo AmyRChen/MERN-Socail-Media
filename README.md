@@ -16,3 +16,6 @@ Environment: MongoDB, Express.js, React, Node.js, JavaScript, HTML5, CSS3
 - Use Mongoose for managing database
 - Use JSON web token for authentication
 - Use multer for file uploading
+
+# Update
+23-03-14 TODO: user profile page doesn't work after deploy. Need to fix.

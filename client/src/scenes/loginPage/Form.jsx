@@ -213,7 +213,9 @@ const Form = () => {
                       >
                         <input {...getInputProps()} />
                         {!values.picture ? (
-                          <p>Add Picture Here!</p>
+                          <>
+                            <strong>Required:</strong> <p>Add Picture Here!</p>
+                          </>
                         ) : (
                           //Show the name of the img that's been added
                           <FlexBetween>

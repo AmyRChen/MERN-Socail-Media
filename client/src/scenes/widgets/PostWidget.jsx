@@ -36,7 +36,7 @@ const PostWidget = ({
 
   const patchLike = async () => {
     const response = await fetch(
-      `https://socailmedia-backend.onrender.com/posts/${postId}/like`,
+      `${process.env.REACT_APP_BASE_URL}/posts/${postId}/like`,
       {
         method: "PATCH",
         headers: {

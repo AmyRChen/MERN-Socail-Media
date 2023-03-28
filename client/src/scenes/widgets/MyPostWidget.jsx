@@ -7,7 +7,6 @@ import {
   MicOutlined,
   MoreHorizOutlined,
 } from "@mui/icons-material";
-
 import {
   Box,
   Divider,
@@ -78,7 +77,7 @@ const MyPostWidget = ({ picturePath }) => {
       </FlexBetween>
       {isImage && (
         <Box
-          border={`1rem solid ${medium}`}
+          border={`1px solid ${medium}`}
           borderRadius="5px"
           mt="1rem"
           p="1rem"
@@ -99,7 +98,7 @@ const MyPostWidget = ({ picturePath }) => {
                 >
                   <input {...getInputProps()} />
                   {!image ? (
-                    <p>Add image Here!</p>
+                    <p>Add Image Here</p>
                   ) : (
                     <FlexBetween>
                       <Typography>{image.name}</Typography>
@@ -133,6 +132,7 @@ const MyPostWidget = ({ picturePath }) => {
             Image
           </Typography>
         </FlexBetween>
+
         {isNonMobileScreens ? (
           <>
             <FlexBetween gap="0.25rem">
@@ -155,6 +155,7 @@ const MyPostWidget = ({ picturePath }) => {
             <MoreHorizOutlined sx={{ color: mediumMain }} />
           </FlexBetween>
         )}
+
         <Button
           disabled={!post}
           onClick={handlePost}

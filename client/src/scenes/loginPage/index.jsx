@@ -4,7 +4,6 @@ import Form from "./Form";
 const LoginPage = () => {
   const theme = useTheme();
   const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
-
   return (
     <Box>
       <Box
@@ -17,6 +16,7 @@ const LoginPage = () => {
           SocialMidia
         </Typography>
       </Box>
+
       <Box
         width={isNonMobileScreens ? "50%" : "93%"}
         p="2rem" //Root em -> Root size of the font

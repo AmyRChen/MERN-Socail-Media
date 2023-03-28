@@ -16,7 +16,6 @@ import { setLogin } from "state";
 //drop a file or image
 import Dropzone from "react-dropzone";
 import FlexBetween from "components/FlexBetween";
-
 //yup validation schema - determine how the form library going to save information
 //inside the brackets of the 'required' is required error message (show up when the field is empty).
 //inside 'email' is email format err message.
@@ -57,12 +56,12 @@ const Form = () => {
   const { palette } = useTheme();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const isNonMobile = useMediaQuery("(min-width: 600px");
+  const isNonMobile = useMediaQuery("(min-width:600px)");
   const isLogin = pageType === "login";
   const isRegister = pageType === "register";
 
   const register = async (values, onSubmitProps) => {
-    //this allow us to send form info with image
+    // this allows us to send form info with image
     const formData = new FormData();
     for (let value in values) {
       formData.append(value, values[value]);
@@ -106,9 +105,9 @@ const Form = () => {
     }
   };
 
-  const handleFormSubmit = async (values, onsubmitProps) => {
-    if (isLogin) await login(values, onsubmitProps);
-    if (isRegister) await register(values, onsubmitProps);
+  const handleFormSubmit = async (values, onSubmitProps) => {
+    if (isLogin) await login(values, onSubmitProps);
+    if (isRegister) await register(values, onSubmitProps);
   };
 
   return (
@@ -134,7 +133,7 @@ const Form = () => {
             display="grid"
             gap="30px"
             //Split grid into 4 sections with min 0 or equal fractions of 4
-            gridTemplateColumns="repeat(4, minmax(0, 1fr)"
+            gridTemplateColumns="repeat(4, minmax(0, 1fr))"
             sx={{
               "& > div": { gridColumn: isNonMobile ? undefined : "span 4" }, //in smaller scr will overwrite below's sx
             }}
@@ -160,7 +159,6 @@ const Form = () => {
                   onChange={handleChange}
                   value={values.lastName}
                   name="lastName"
-                  //Check if it has been touched or if there's an error (will show error for this particular text field )
                   error={Boolean(touched.lastName) && Boolean(errors.lastName)}
                   helperText={touched.lastName && errors.lastName}
                   sx={{ gridColumn: "span 2" }}
@@ -171,7 +169,6 @@ const Form = () => {
                   onChange={handleChange}
                   value={values.location}
                   name="location"
-                  //Check if it has been touched or if there's an error (will show error for this particular text field )
                   error={Boolean(touched.location) && Boolean(errors.location)}
                   helperText={touched.location && errors.location}
                   sx={{ gridColumn: "span 4" }}
@@ -182,7 +179,6 @@ const Form = () => {
                   onChange={handleChange}
                   value={values.occupation}
                   name="occupation"
-                  //Check if it has been touched or if there's an error (will show error for this particular text field )
                   error={
                     Boolean(touched.occupation) && Boolean(errors.occupation)
                   }
@@ -214,7 +210,8 @@ const Form = () => {
                         <input {...getInputProps()} />
                         {!values.picture ? (
                           <>
-                            <strong>Required:</strong> <p>Add Picture Here!</p>
+                            <strong>Required:</strong>
+                            <p>Add Picture Here</p>
                           </>
                         ) : (
                           //Show the name of the img that's been added
@@ -228,8 +225,8 @@ const Form = () => {
                   </Dropzone>
                 </Box>
               </>
-            )}{" "}
-            {/* ABOVE IS REGISTER SESSION*/}
+            )}
+
             <TextField
               label="Email"
               onBlur={handleBlur}
@@ -252,11 +249,12 @@ const Form = () => {
               sx={{ gridColumn: "span 4" }}
             />
           </Box>
+
           {/* BUTTONS */}
           <Box>
             <Button
               fullWidth
-              type="submit" //Run the handleSubmit function above
+              type="submit"
               sx={{
                 m: "2rem 0",
                 p: "1rem",
@@ -275,14 +273,14 @@ const Form = () => {
               sx={{
                 textDecoration: "underline",
                 color: palette.primary.main,
-                "&hover": {
+                "&:hover": {
                   cursor: "pointer",
                   color: palette.primary.light,
                 },
               }}
             >
               {isLogin
-                ? "Don't have an account? Sign up here."
+                ? "Don't have an account? Sign Up here."
                 : "Already have an account? Login here."}
             </Typography>
           </Box>

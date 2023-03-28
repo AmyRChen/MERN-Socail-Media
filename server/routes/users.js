@@ -1,15 +1,14 @@
 import express from "express";
 import {
-    getUser,
-    getUserFriends,
-    addRemoveFriend,
+  getUser,
+  getUserFriends,
+  addRemoveFriend,
 } from "../controllers/users.js";
 import { verifyToken } from "../middleware/auth.js";
 
 const router = express.Router();
 
 //Only for grab information, not actually saving, updating anything
-
 /* READ */
 router.get("/:id", verifyToken, getUser);
 router.get("/:id/friends", verifyToken, getUserFriends);

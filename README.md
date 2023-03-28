@@ -19,3 +19,4 @@ Environment: MongoDB, Express.js, React, Node.js, JavaScript, HTML5, CSS3
 
 # Update
 23-03-14 TODO: user profile page doesn't work after deploy. Need to fix.
+23-23-28 UPDATE: Update minus typo in the code and fix the user profile bugs in Friend.jsx and FriendListWidget.jsx

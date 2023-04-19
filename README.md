@@ -1,5 +1,7 @@
 # MERN-SocialMedia
 Production: https://socailmedia-frontend.onrender.com
+- Email for test: test@gmail.com
+- Password for test: test
 
 Environment: MongoDB, Express.js, React, Node.js, JavaScript, HTML5, CSS3
 - A user-friendly full stack responsive MERN social media app with authorization and authentication, friends list, likes, dark mode, posts functions.

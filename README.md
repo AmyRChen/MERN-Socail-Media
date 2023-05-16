@@ -1,4 +1,6 @@
 # MERN-SocialMedia
+This is a user-friendly, responsive social media application. For this side project, I have implemented various features such as authorization and authentication. Users can add other users to their friends list, post photos and ideas, and like other users' posts. It is designed to simulate a real-world social media platform.
+
 Production: https://socailmedia-frontend.onrender.com
 - Email for test: test@gmail.com
 - Password for test: test

@@ -84,6 +84,15 @@ const Form = () => {
   };
 
   const login = async (values, onSubmitProps) => {
+    if (values === null && onSubmitProps === null) {
+      // Guest user login
+      values = {
+        email: "guest@gmail.com",
+        password: "guest",
+      };
+      onSubmitProps = {}; // Set empty object as onSubmitProps
+    }
+
     const loggedInResponse = await fetch(
       `${process.env.REACT_APP_BASE_URL}/auth/login`,
       {
@@ -92,8 +101,11 @@ const Form = () => {
         body: JSON.stringify(values),
       }
     );
+
     const loggedIn = await loggedInResponse.json();
-    onSubmitProps.resetForm();
+    if (onSubmitProps && typeof onSubmitProps.resetForm === "function") {
+      onSubmitProps.resetForm();
+    }
     if (loggedIn) {
       dispatch(
         setLogin({
@@ -256,7 +268,7 @@ const Form = () => {
               fullWidth
               type="submit"
               sx={{
-                m: "2rem 0",
+                m: "2rem 0 1rem 0",
                 p: "1rem",
                 backgroundColor: palette.primary.main,
                 color: palette.background.alt,
@@ -265,6 +277,26 @@ const Form = () => {
             >
               {isLogin ? "LOGIN" : "REGISTER"}
             </Button>
+            {isLogin && (
+              <Button
+                fullWidth
+                type="button"
+                sx={{
+                  m: "0 0 2rem 0",
+                  p: "1rem",
+                  backgroundColor: palette.primary.main,
+                  color: palette.background.alt,
+                  "&:hover": { color: palette.primary.main },
+                }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  login(null, null);
+                }}
+              >
+                GUEST &nbsp;&nbsp;USER &nbsp;&nbsp;LOGIN
+              </Button>
+            )}
+
             <Typography
               onClick={() => {
                 setPageType(isLogin ? "register" : "login");
@@ -280,8 +312,8 @@ const Form = () => {
               }}
             >
               {isLogin
-                ? "Don't have an account? Sign Up here."
-                : "Already have an account? Login here."}
+                ? "Don't have an account? Sign Up here. You can also Login with Guest User account."
+                : "Already have an account? Login here. You can also Login with Guest User account."}
             </Typography>
           </Box>
         </form>
